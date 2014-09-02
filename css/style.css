@@ -8,6 +8,7 @@ body{
     -o-transition: background-color 1800ms linear;
     -ms-transition: background-color 1800ms linear;
     transition: background-color 1800ms linear;
+    background-image: url(../gfx/noise.png);
 }
 #ui img{
 	width:50px;
