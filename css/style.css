@@ -1,0 +1,108 @@
+body{
+	font-family:verdana;
+	background-color:#010101;
+	text-align:center;
+	overflow-x:hidden;
+	-webkit-transition: background-color 1800ms linear;
+    -moz-transition: background-color 1800ms linear;
+    -o-transition: background-color 1800ms linear;
+    -ms-transition: background-color 1800ms linear;
+    transition: background-color 1800ms linear;
+}
+#ui img{
+	width:50px;
+	position:relative;
+	margin:0 auto;
+	display:block;
+}
+a{
+	text-align: center;
+}
+.fadeUp{
+	background-color:#FFFFB2;
+	-webkit-transition: background-color 1800ms linear;
+    -moz-transition: background-color 1800ms linear;
+    -o-transition: background-color 1800ms linear;
+    -ms-transition: background-color 1800ms linear;
+    transition: background-color 1800ms linear;
+}
+.red{
+	background-color:#FF0000;
+	-webkit-transition: background-color 1800ms linear;
+    -moz-transition: background-color 1800ms linear;
+    -o-transition: background-color 1800ms linear;
+    -ms-transition: background-color 1800ms linear;
+    transition: background-color 1800ms linear;
+}
+.green{
+	background-color:#00FF00;
+	-webkit-transition: background-color 1800ms linear;
+    -moz-transition: background-color 1800ms linear;
+    -o-transition: background-color 1800ms linear;
+    -ms-transition: background-color 1800ms linear;
+    transition: background-color 1800ms linear;
+}
+.textcolor{
+	color:#010101;
+	-webkit-transition: color 1800ms linear;
+    -moz-transition: color 1800ms linear;
+    -o-transition: color 1800ms linear;
+    -ms-transition: color 1800ms linear;
+    transition: color 1800ms linear;
+}
+#bulb{
+	position:relative;
+}
+h1{
+	position:absolute;
+	width:100%;
+	font-family: 'Pacifico', cursive;
+	color:#fff;
+	font-size:48px;
+	z-index:200;
+	text-shadow: -2px 2px 0px rgba(150, 150, 150, 1);
+	-webkit-transition: color 1800ms linear;
+    -moz-transition: color 1800ms linear;
+    -o-transition: color 1800ms linear;
+    -ms-transition: color 1800ms linear;
+    transition: color 1800ms linear;
+}
+
+#ui{
+	position:absolute;
+	width:120px;
+	top:0px;
+	padding-top:15px;
+	background-color: #333;
+	bottom:0px;
+	z-index:9999;
+	box-shadow: 5px 0 5px -5px #000;
+	right:-120px;
+}
+.button{
+	text-decoration: none;
+	font-weight:bold;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+	color:#ddd;
+}
+.item{
+	background-color:#333;
+	-webkit-transition: background-color 800ms linear;
+    -moz-transition: background-color 800ms linear;
+    -o-transition: background-color 800ms linear;
+    -ms-transition: background-color 800ms linear;
+    transition: background-color 800ms linear;
+}
+.item:hover{
+	background-color:#111;
+	-webkit-transition: background-color 800ms linear;
+    -moz-transition: background-color 800ms linear;
+    -o-transition: background-color 800ms linear;
+    -ms-transition: background-color 800ms linear;
+    transition: background-color 800ms linear;
+}
+
+

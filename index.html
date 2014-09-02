@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Lights ON / OFF</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Anthony Dry" />
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="//js.leapmotion.com/0.2.0-beta6/leap.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body>
+		<a href="https://github.com/AnthonyDry/lights-on-off/tree/gh-pages"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
+		<div>
+			<div id="ui">
+					<div id="on-off" class="button item">
+						<img src="gfx/light-bulb.png" alt="what?"/>
+						<p>Light it</p>
+					</div>
+					<div id="color-change" class="button item">
+						<img src="gfx/color.png" alt="what?"/>
+						<p>Color</p>
+					</div>
+				</a>
+			</div>
+			<h1 id="title">Lights on/off</h1>
+			<img id="bulb" src="gfx/bulb.png">
+		</div>
+
+		
+    <script>
+		$(document).ready(function() {
+			//public
+			var isON = false;
+			var colorz = 0;
+			$(window).resize(function(){
+				var h = $(window).height();
+				var w = $(window).width();
+				$('body').css('width', w);
+				$('#bulb').css('margin-top', (h / 2) - 128);
+			});
+			$(window).resize();
+			var controller = new Leap.Controller({enableGestures: true});
+			controller.loop(function(obj) {
+		  		var hands = obj.hands.length;
+				var fingers = obj.pointables.length;
+				if(hands === 1){
+					$('body').addClass('fadeUp');
+				}
+				else if(hands === 0){
+					$('body').removeClass('fadeUp');
+				}
+				if(fingers === 2){
+					$('body').addClass('red');
+				}
+				else if(fingers === 4){
+					$('body').addClass('green');
+				}
+				else{
+					$('body').removeClass('red');
+					$('body').removeClass('green');
+				}
+				if(hands === 1 && fingers != 2 && fingers != 4)
+				{
+					$('#title').addClass('textcolor');
+				}
+				else{
+					$('#title').removeClass('textcolor');
+				}  
+			});
+			controller.on('deviceDisconnected', function() {
+	      	});
+	      	controller.on('deviceConnected', function() {
+	      	});
+
+	      	$('#on-off').click(function(e){
+	      		e.preventDefault();
+	      		if(!isON){
+	      			isON = true;
+	      			$('body').addClass('fadeUp');	
+	      		}
+	      		else{
+	      			$('body').removeClass('fadeUp');
+	      			isON = false;
+	      			if($('body').hasClass('red'))
+	      			{
+	      				$('body').removeClass('red');
+	      			}
+	      			else if($('body').hasClass('green')){
+	      				$('body').removeClass('green');
+	      			}
+	      		}
+
+	      	});
+	      	$('#color-change').click(function(e){
+	      		e.preventDefault();
+	      		if(isON){
+	      			if(colorz === 0)
+	      			{	
+	      				$('body').addClass('red');
+	      				colorz = 1;
+
+	      			}
+	      			else if(colorz === 1){
+	      				$('body').addClass('green');
+	      				$('body').removeClass('red');
+	      				colorz = 2;
+	      			}
+	      			else if(colorz === 2)
+	      			{
+	      				$('body').removeClass('green');
+	      				colorz = 0;
+	      			}
+
+	      		}
+
+	      	});
+  		});
+	</script>
+	</body>
+	
+</html>
